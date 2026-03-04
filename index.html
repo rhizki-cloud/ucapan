@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Birthday Website</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="party-layer" aria-hidden="true">
+    <div class="sparkles" id="sparkles"></div>
+    <div class="balloons" id="balloons"></div>
+  </div>
+  <!-- Autoplay blocker overlay (muncul kalau musik diblok browser) -->
+  <div id="audioGate" class="audio-gate hidden" role="dialog" aria-modal="true">
+    <div class="audio-card">
+      <div class="audio-icon">🎵</div>
+      <div class="audio-title">Tap untuk mulai musik</div>
+      <div class="audio-sub">Sebagian browser memblokir autoplay. Sekali tap aja.</div>
+      <button id="startAudioBtn" class="btn primary">Mulai Musik</button>
+    </div>
+  </div>
+
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Birthday Card</span>
+      </div>
+      <div class="meta">
+        <span class="pill" id="today"></span>
+        <button class="icon-btn" id="toggleMusic" title="Music on/off" aria-label="Music on/off">
+          <span id="musicIcon">🔊</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card left">
+        <h1 class="headline" id="headline">Selamat Ulang Tahun! ✨</h1>
+        <p class="lead" id="lead">
+            Isi nama, lalu klik <b>Rayakan</b>. Setelah itu jangan lupa tiup lilinnya, setelah tiup lilin jangan lupa buka kadonya.
+        </p>
+
+        <div class="form">
+          <label class="field">
+            <span>Nama</span>
+            <input id="name" type="text" placeholder="Contoh: Hima" maxlength="30" />
+          </label>
+
+          <div class="actions">
+            <button class="btn primary" id="celebrate">Rayakan 🎊</button>
+            <button class="btn" id="blow">Tiup Lilin 💨</button>
+            <button class="btn ghost" id="reset">Reset</button>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="message-title">Ucapan</div>
+          <div class="message-text" id="message">
+            Semoga hari ini penuh tawa, cinta, dan hal-hal baik yang datang tanpa permisi. 🥳
+          </div>
+          <div class="message-foot" id="messageFoot">
+            Tip: klik “Rayakan” beberapa kali buat confetti makin rame.
+          </div>
+        </div>
+      </div>
+
+      <div class="card right">
+        <div class="cake-stage">
+          <div class="spotlight"></div>
+
+          <div class="cake" aria-label="3D cake">
+            <div class="cake-top">
+              <div class="icing"></div>
+              <div class="candle">
+                <div class="wick"></div>
+                <div id="flame" class="flame"></div>
+              </div>
+            </div>
+
+            <div class="cake-mid"></div>
+            <div class="cake-bottom"></div>
+            <div class="plate"></div>
+          </div>
+<!-- Gifts grid -->
+<div id="giftsArea" class="gifts-area"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Made with seseorang</span>
+      <span class="sep">•</span>
+      <span id="status">Ready</span>
+    </footer>
+  </main>
+<!-- Photo Modal -->
+<div id="photoModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <img id="modalImg" alt="Photo" />
+      <div class="modal-caption" id="modalCaption"></div>
+      <div class="modal-nav">
+        <button class="btn ghost" id="prevPhoto">←</button>
+        <button class="btn ghost" id="nextPhoto">→</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
